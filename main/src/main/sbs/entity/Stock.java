@@ -4,7 +4,7 @@ public class Stock {
 
 	String Name;
 	double currentPrice;
-	static final int quantity = 500;
+	 int quantity = 500;
 
 	public Stock() {
 		
@@ -15,11 +15,17 @@ public class Stock {
 		this.currentPrice = currentPrice;
 	}
 
-	public void setCompanyName(String name) {
+	public void setQuantity(int qt) {
+		this.quantity=qt;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void SetName(String name) {
 		this.Name = name;
 	}
 
-	public String getCompanyName() {
+	public String getName() {
 		return Name;
 	}
 

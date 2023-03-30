@@ -7,7 +7,7 @@ public class Transaction {
 	String UserName;
 	String eMail;
 	String stockName;
-	int stockPrice;
+	double stockPrice;
 	int stockQuantity;
 	double total;
 	LocalDate ld;
@@ -16,7 +16,7 @@ public class Transaction {
 		
 	}
 	
-	public Transaction(String UserName, String eMail, String stockName, int stockPrize, int stockQuantity, double total,
+	public Transaction(String UserName, String eMail, String stockName, double stockPrize, int stockQuantity, double total,
 			LocalDate ld) {
 		this.UserName = UserName;
 		this.eMail = eMail;
@@ -55,7 +55,7 @@ public class Transaction {
 		this.stockPrice = prize;
 	}
 
-	public int getStockPrize() {
+	public double getStockPrize() {
 		return this.stockPrice;
 	}
 
