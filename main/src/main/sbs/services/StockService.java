@@ -18,5 +18,5 @@ public interface StockService {
 	
 	List<Stock> consolidateReport(String stockName,Map<String,Stock>stock);
 	
-//	boolean deleteCustomer(String email,Map<String,Customer>customer,Map<String,Stock>stock);
+	boolean deleteCustomer(String email,Map<String,Customer>customer,List<Transaction>transaction,List<Customer>custo);
 }

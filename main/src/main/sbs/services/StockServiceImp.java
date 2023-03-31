@@ -4,6 +4,7 @@ import java.util.*;
 
 import main.sbs.entity.Customer;
 import main.sbs.entity.Stock;
+import main.sbs.entity.Transaction;
 import main.sbs.exceptions.InvalidStockName;
 
 public class StockServiceImp implements StockService{
@@ -79,18 +80,38 @@ public class StockServiceImp implements StockService{
 		return lv;
 	}
 
-//	@Override
-//	public boolean deleteCustomer(String email, Map<String, Customer> customer,Map<String,Stock>stock) {
-//		// TODO Auto-generated method stub
-//		if(customer.containsKey(email)) {
-//			
-//			
-//		}
-//		else {
-//			System.out.println("Please enter valid customer email");
-//		}
-//		return false;
-//	}
+	@Override
+	public boolean deleteCustomer(String email, Map<String, Customer> customer,
+			List<Transaction> transaction, List<Customer> custo) {
+		// TODO Auto-generated method stub
+		if(customer.containsKey(email)) {
+			Customer cus=customer.get(email);
+			if(!custo.contains(cus)) {
+				double wb=0;
+				for (Transaction tr:transaction) {
+					if(tr.getEmail().equals(email)) {
+						wb+= tr.getStockQuantity()*tr.getStockPrize();
+					}
+				}
+                     cus.setWalletBalance(cus.getWalletBalance()+wb);
+                     cus.setstockQuantity(0);
+                     customer.put(email, cus);
+                     custo.add(cus);
+                     return true;
+			}
+			else {
+				System.out.println("Custoer account is already deactivated");
+			}
+			
+		}
+		else {
+			System.out.println("There is no customer with  this id");
+		}
+		return false;
+	}
+
+
+
 
 	
 }
