@@ -28,3 +28,6 @@ The Stock Broker System is a type of application which is used to buy and sell s
 
 @Prithvichauhan
 
+# output
+
+![Stock Broker System-logos](https://user-images.githubusercontent.com/114485250/229363108-a2131dd1-a898-44f7-b5e4-9503c555992d.jpeg)
