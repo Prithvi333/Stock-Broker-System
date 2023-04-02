@@ -15,19 +15,17 @@ public class CustomerServiceImp implements CustomerService {
 			return true;
 		} else
 			throw new DuplicateCustomer("Customer account is already registered");
-
 	}
 
 	@Override
 	public boolean signIn(String email, String password, Map<String, Customer> cus) throws InvalidCredentials {
 		// TODO Auto-generated method stub
-		if (cus.get(email).getEmail().equals(email)) {
-			if (cus.get(email).getPassWord().equals(password))
-				;
-			return true;
-		} else {
-			System.out.println("Please enter the valid email");
-		}
+		if (cus.containsKey(email)) {
+			if (cus.get(email).getEmail().equals(email) && cus.get(email).getPassWord().equals(password)) {
+				return true;
+			}
+		} else
+			throw new InvalidCredentials("Please enter the valid credentials");
 		return false;
 	}
 
@@ -38,7 +36,12 @@ public class CustomerServiceImp implements CustomerService {
 		// TODO Auto-generated method stub
 		if (stock.size() != 0) {
 			if (stock.containsKey(stockName)) {
-				if (cs.contains(customer.get(email))) {
+				boolean flag = false;
+				for (Customer val : cs) {
+					if (val.getEmail().equals(email))
+						flag = true;
+				}
+				if (!flag) {
 					if (quantity <= stock.get(stockName).getQuantity()) {
 						double cu = customer.get(email).getWalletBalance();
 						double price = quantity * stock.get(stockName).getCurrentPrice();
@@ -52,8 +55,11 @@ public class CustomerServiceImp implements CustomerService {
 							st.setQuantity(st.getQuantity() - quantity);
 
 							Transaction ts = new Transaction(user, email, stockName,
+
 									stock.get(stockName).getCurrentPrice(), quantity, price, LocalDate.now());
+							ts.setTransactionType("Buy");
 							transaction.add(ts);
+							return "You bought stock successfully";
 						}
 
 					}
@@ -66,10 +72,8 @@ public class CustomerServiceImp implements CustomerService {
 			} else {
 				return "Stock of this name is not available";
 			}
-		} else {
-			return "Stock is not available to buy";
 		}
-		return "You bought stock successfully";
+		return "Stock is not available to buy";
 	}
 
 	@Override
@@ -89,10 +93,8 @@ public class CustomerServiceImp implements CustomerService {
 			if (!cs.contains(customer.get(email))) {
 				customer.get(email).setWalletBalance(customer.get(email).getWalletBalance() + amount);
 			} else
-				System.out.println("Sorry for the inconvenience your account is deactivated");
-		}
-
-		else
+				return "Sorry for the inconvenience your account is deactivated";
+		} else
 			throw new InvalidEmail("Email is not valid");
 		return "Money is added successfully in your wallet!";
 	}
@@ -140,6 +142,11 @@ public class CustomerServiceImp implements CustomerService {
 					cs.setWalletBalance(cs.getWalletBalance() + amount);
 					cs.setstockQuantity(cs.getstockQuantity() - quantity);
 					customer.put(email, cs);
+					Transaction ts = new Transaction(user, email, stockName, stock.get(stockName).getCurrentPrice(),
+							quantity, stock.get(stockName).getCurrentPrice(), LocalDate.now());
+					ts.setTransactionType("sell");
+					transaction.add(ts);
+					return "Stock sold successfully!";
 				} else
 					System.out.println("You dont have sufficient quantity of stocks");
 			} else {

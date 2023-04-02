@@ -13,10 +13,11 @@ public interface StockService {
 	String UpdateStock(Stock stoc, Map<String, Stock> stock) throws InvalidStockName;
 
 	List<Stock> viewStocks(Map<String, Stock> stock);
-	
-	List<Customer> viewAllCustomer(Map<String,Customer>customer);
-	
-	List<Stock> consolidateReport(String stockName,Map<String,Stock>stock);
-	
-	boolean deleteCustomer(String email,Map<String,Customer>customer,List<Transaction>transaction,List<Customer>custo);
+
+	List<Customer> viewAllCustomer(Map<String, Customer> customer);
+
+	List<Stock> consolidateReport(String stockName, Map<String, Stock> stock);
+
+	boolean deleteCustomer(String email, Map<String, Customer> customer, List<Transaction> transaction,
+			List<Customer> custo);
 }

@@ -1,8 +1,10 @@
 package main.sbs.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Transaction {
+@SuppressWarnings("serial")
+public class Transaction implements Serializable {
 
 	String UserName;
 	String eMail;
@@ -10,14 +12,24 @@ public class Transaction {
 	double stockPrice;
 	int stockQuantity;
 	double total;
-	LocalDate ld;
-   
-	public Transaction() {
-		
+	String transactionType;
+
+	public String getTransactionType() {
+		return transactionType;
 	}
-	
-	public Transaction(String UserName, String eMail, String stockName, double stockPrize, int stockQuantity, double total,
-			LocalDate ld) {
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+
+	LocalDate ld;
+
+	public Transaction() {
+
+	}
+
+	public Transaction(String UserName, String eMail, String stockName, double stockPrize, int stockQuantity,
+			double total, LocalDate ld) {
 		this.UserName = UserName;
 		this.eMail = eMail;
 		this.stockName = stockName;
@@ -84,7 +96,8 @@ public class Transaction {
 	}
 
 	public String toString() {
-		return "UserName- " + UserName + ", Email- " + eMail + ", StockName- " + stockName + ", StockPrize- " + stockPrice
-				+ ", StockQuantity- " + stockQuantity + ", Total- " + total + ", Date- " + ld;
+		return "UserName- " + UserName + ", Email- " + eMail + ", StockName- " + stockName + ", StockPrize- "
+				+ stockPrice + ", StockQuantity- " + stockQuantity + ", Total- " + total + ", TransactonType- "
+				+ transactionType + ", Date- " + ld;
 	}
 }

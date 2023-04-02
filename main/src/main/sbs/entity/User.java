@@ -1,6 +1,9 @@
 package main.sbs.entity;
 
-public class User {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class User implements Serializable {
 	String firstName;
 	String lastName;
 	String userName;
@@ -8,13 +11,14 @@ public class User {
 	String email;
 	long mobNumber;
 	String address;
+	String status;
 
 	public User() {
 
 	}
 
 	public User(String firstName, String lastName, String userName, String passWord, String email, long mob,
-			String address) {
+			String address, String status) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -22,6 +26,15 @@ public class User {
 		this.email = email;
 		this.mobNumber = mob;
 		this.address = address;
+		this.status = status;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setFirstName(String fname) {
