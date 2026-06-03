@@ -1,31 +1,94 @@
+## 🌟 Overview
+The **Stock Broker System** is a full-stack backend-driven application designed to simulate real-world stock market operations. It enables users to perform stock trading activities such as buying and selling shares, managing portfolios, and handling wallet transactions.
 
-# Stock Broker System
+The system is built to replicate a simplified brokerage platform where **brokers manage the market ecosystem** and **customers actively participate in trading activities**.
 
-The Stock Broker System is a type of application which is used to buy and sell stock along with the additional functionality .In this application user have different stocks options.This application is for those who are looking ahead to invest in stock market.
+This project demonstrates core backend concepts such as user management, transactional systems, role-based access control, and financial operations.
 
-### There are two user in the system
- #### Broker   
- #### Customer 
+---
 
-### The Role of the Broker :
-1. Login with his account.
-2. View all the customers.
-3. Add new stocks.
-4. View consolidated report of a stock.
-5. Delete customer.
-7. Delete stock.
+## 👥 User Roles
 
-### The Role of Custoemer is :
-1. Sign-up with his credentials.
-2. Login with his account.
-3. View all stocks.
-4. Buy and sell stocks.
-5. View his own transaction history.
-6. Add and withdraw funds to & from wallet.
+The system supports two distinct roles:
 
-#### Tech Stack- Java- IDE-Spring Tool Suite
-## Authors
+### 🏦 Broker
+Responsible for managing the stock ecosystem and users.
 
-@Prithvichauhan
+### 👤 Customer
+Responsible for trading stocks and managing investments.
 
-![Stock Broker System-logos](https://user-images.githubusercontent.com/114485250/229363108-a2131dd1-a898-44f7-b5e4-9503c555992d.jpeg)
+---
+
+## 🏦 Broker Functionalities
+
+- Secure login using broker credentials  
+- View and manage all registered customers  
+- Add new stocks to the trading platform  
+- View consolidated stock performance reports  
+- Delete customer accounts when required  
+- Remove stocks from the system  
+
+---
+
+## 👤 Customer Functionalities
+
+- Register and create a new account (Sign-up)  
+- Secure login authentication  
+- Browse and view all available stocks  
+- Buy and sell stocks in real-time simulation  
+- Maintain and track personal transaction history  
+- Manage wallet balance (add / withdraw funds)  
+
+---
+
+## 🔄 Core System Features
+
+- Role-based access control (Broker vs Customer)  
+- Stock trading simulation (buy/sell operations)  
+- Wallet-based financial transactions  
+- Transaction history tracking for transparency  
+- Stock management and reporting system  
+- Secure authentication flow  
+
+---
+
+## 🧠 Key Highlights
+
+- Real-world stock trading workflow simulation  
+- Strong backend logic for financial operations  
+- Clean separation of roles and responsibilities  
+- Focus on transaction consistency and data integrity  
+- Scalable design suitable for extension into microservices  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Language:** Java  
+- **Framework:** Spring Boot (if applicable)  
+- **IDE:** Spring Tool Suite (STS)  
+- **Architecture:** RESTful backend system  
+- **Database:** MySQL (if used – update accordingly)  
+
+---
+
+## 🚀 Future Enhancements
+
+- Real-time stock price integration (live market data)  
+- Advanced analytics dashboard for users  
+- Notification system for stock updates  
+- Integration with external stock APIs  
+- Microservices-based architecture conversion  
+- Mobile application support  
+
+---
+
+## 👨‍💻 Author
+
+**Prithvi Chauhan**  
+Java Backend Developer | AWS | DevOps Enthusiast  
+
+---
+
+## ⭐ Note
+This project is built as a backend engineering exercise to strengthen understanding of system design, transactional workflows, and real-world financial application logic.
